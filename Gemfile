@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'bulma-rails', '~> 0.74'
+gem 'bulma-rails', '~> 0.9.2'
 gem 'bulma-extensions-rails', '~> 1.0.30'
 
 group :development, :test do
