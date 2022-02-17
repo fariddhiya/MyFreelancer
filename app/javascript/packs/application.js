@@ -9,7 +9,19 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 window.Noty = require("noty");
+window.Dropzone = require("dropzone");
+
+$(document).ready(() => {
+  $('.toggle').on("click", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    $('#' + e.target.getAttribute('aria-controls')).toggleClass('is-hidden')
+  })
+});
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require("trix")
+require("@rails/actiontext")

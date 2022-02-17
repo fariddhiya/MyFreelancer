@@ -17,9 +17,18 @@ gem 'bulma-rails', '~> 0.9.2'
 gem 'bulma-extensions-rails', '~> 1.0.30'
 gem 'devise'
 
+gem 'omniauth', '2.0.4'
+gem 'omniauth-facebook', '~> 7.0.0'
+gem 'omniauth-rails_csrf_protection'
+
+gem 'faker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
 end
 
 group :development do

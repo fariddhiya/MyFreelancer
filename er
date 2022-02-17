@@ -1,0 +1,26 @@
+
+[1mFrom:[0m /home/wg03/Documents/Farid/BelajarRuby/freelancer/app/models/user.rb:16 User.from_omniauth:
+
+    [1;34m13[0m: [32mdef[0m [1;36mself[0m.[1;34mfrom_omniauth[0m(auth)
+    [1;34m14[0m:   user = [1;34;4mUser[0m.where([35memail[0m: auth.info.email).first
+    [1;34m15[0m:   [1;34m# rails.logger.info "user: #{user}"[0m
+ => [1;34m16[0m:   binding.pry
+    [1;34m17[0m:   [32mif[0m user
+    [1;34m18[0m:     [32mif[0m !user.provider
+    [1;34m19[0m:       user.update([35muid[0m: auth.uid, [35mprovider[0m: auth.provider, [35mimage[0m: auth.info.image)
+    [1;34m20[0m:     [32mend[0m
+    [1;34m21[0m:     [32mreturn[0m user
+    [1;34m22[0m:   [32melse[0m
+    [1;34m23[0m:     where([35mprovider[0m: auth.provider, [35muid[0m: auth.uid).first_or_create [32mdo[0m |user|
+    [1;34m24[0m:       user.email = auth.info.email
+    [1;34m25[0m:       user.password = [1;34;4mDevise[0m.friendly_token[[1;34m0[0m,[1;34m20[0m]
+    [1;34m26[0m:       user.full_name = auth.info.name 
+    [1;34m27[0m:       user.image = auth.info.image
+    [1;34m28[0m: 
+    [1;34m29[0m:       user.uid = auth.uid
+    [1;34m30[0m:       user.provider = auth.provider
+    [1;34m31[0m: 
+    [1;34m32[0m:     [32mend[0m
+    [1;34m33[0m:   [32mend[0m
+    [1;34m34[0m: [32mend[0m
+
