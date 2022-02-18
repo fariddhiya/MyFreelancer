@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       delete :delete_photo
       post :upload_photo
     end
+    resources :orders, only: [:create] #/gigs/:gig_id/orders
   end
 
   devise_for :users,
@@ -18,4 +19,4 @@ Rails.application.routes.draw do
               path_names: {sign_up: 'register', sign_in: 'login', edit: 'profile', sign_out: 'logout'},
               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: "registrations"}
   
-end
+end 

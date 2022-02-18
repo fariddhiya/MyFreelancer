@@ -1,4 +1,6 @@
 class GigsController < ApplicationController
+
+  protect_from_forgery except: [:upload_photo]
   before_action :authenticate_user!, except: [:show]
   before_action :set_gig, except: [:new, :create]
   before_action :is_authorized, only: [:edit, :update, :upload_photo, :delete_photo] 
@@ -48,7 +50,7 @@ class GigsController < ApplicationController
     end
 
     if @step == 5
-      @gig.pricing.each do |pricing|
+      @gig.pricings.each do |pricing|
         if @gig.has_single_pricing && !pricing.basic?
           next;
         else
@@ -79,11 +81,12 @@ class GigsController < ApplicationController
   end
 
   def show
+    @categories = Category.all
   end
 
   def upload_photo
     @gig.photos.attach(params[:file])
-    render  json: { success: true }
+    render json: { success: true }
   end
 
   def delete_photo

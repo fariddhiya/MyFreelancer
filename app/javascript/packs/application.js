@@ -10,8 +10,9 @@ import "channels"
 
 window.Noty = require("noty");
 window.Dropzone = require("dropzone");
+window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel.js");
 
-$(document).ready(() => {
+$(document).on('turbolinks:load', () => {
   $('.toggle').on("click", (e) => {
     e.stopPropagation();
     e.preventDefault();
