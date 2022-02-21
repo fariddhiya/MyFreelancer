@@ -3,16 +3,24 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#dashboard'
   get '/users/:id', to: 'users#show'
+  get '/selling_orders', to: 'orders#selling_orders'
+  get '/buying_orders', to: 'orders#buying_orders'
+  get '/all-requests', to: 'requests#list'
 
   post '/users/edit', to: 'users#update'
+
+  put '/orders/:id/complete', to: 'orders#complete', as: 'complete_order'
+  #complete_order_path
 
   resources :gigs do
     member do
       delete :delete_photo
-      post :upload_photo
+      post :upload_photo #/gigs/:gig_id/post
     end
     resources :orders, only: [:create] #/gigs/:gig_id/orders
   end
+
+  resources :requests
 
   devise_for :users,
               path: '',

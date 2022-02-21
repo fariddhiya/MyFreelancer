@@ -91,9 +91,8 @@
                                           <% if (!user_signed_in? && @gig.active) || (user_signed_in? && @gig.active && @gig.user_id != current_user.id) %>
                                             <%= form_for([@gig, @gig.orders.new]) do |f| %>
                                               <%= hidden_field_tag 'pricing_type', p.pricing_type %>
-                                              <%= f.submit "Continue ($#{p.price})" %>
+                                              <%= f.submit "Continue ($#{p.price})", class: "button is-fullwidth is-danger", data: {confirm: "Are you sure?"} %>
                                             <% end %>
-                                            <button class="button is-fullwidth is-danger">Continue ($<%= p.price %>)</button>
                                           <% else %>
                                             <button class="button is-fullwidth is-danger" disabled>Not Available</button>
                                           <% end %>

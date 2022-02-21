@@ -72,15 +72,15 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Buying</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item">Post Request</a>
-            <a class="navbar-item">Manage Request</a>
+            <%= link_to 'Post Request', new_request_path, class: "navbar-item" %>
+            <%= link_to 'Manage Request', requests_path, class: "navbar-item" %>
           </div>
         </div>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Buyer Request</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item">Active Request</a>
+            <%= link_to 'Active Request', all_requests_path, class: "navbar-item" %>
             <a class="navbar-item">Offers Sent</a>
           </div>
         </div>
@@ -88,8 +88,8 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Orders</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item">Selling Orders</a>
-            <a class="navbar-item">Buying Orders</a>
+            <%= link_to 'Selling Orders', selling_orders_path, class: "navbar-item" %>
+            <%= link_to 'Buying Orders', buying_orders_path, class: "navbar-item" %>
           </div>
         </div>
 
