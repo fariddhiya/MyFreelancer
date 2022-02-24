@@ -16,6 +16,45 @@
         <% end %>
       </div>
       <div class="card-content">
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Buyer</th>
+              <th>Request</th>
+              <th class="has-text-centered">Offers</th>
+              <th class="has-text-centered">Duration</th> 
+              <th class="has-text-centered">Budget</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <% if @requests.blank? %>
+              <tr>
+                <td colspan="6" class="has-text-centered"><h1>Nothing to show here</h1></td>
+              </tr>
+            <% end %>
+            <% @requests.each do |r| %>
+              <tr>
+                <td><%= r.created_at.strftime('%d %b %Y')%></td>
+                <td>
+                  <figure>
+                    <%= image_tag avatar_url(r.user), class: "is-rounded image is-64x64" %>
+                  </figure>
+                </td>
+                <td>
+                  <%= link_to request_path(r), class: "tooltip" do %>
+                    <label for="" class="tooltip" data-tooltip="<%= r.description %>">
+                      <%= r.title.truncate(25, seperator: ' ') %>
+                    </label>
+                  <% end %>
+                </td>
+                <td class="has-text-right"><%= r.offers.count %></td>
+                <td class="has-text-right"><%= pluralize(r.delivery, 'day') %></td>
+                <td class="has-text-right">$<%= r.budget %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

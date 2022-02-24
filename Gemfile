@@ -20,8 +20,9 @@ gem 'devise'
 gem 'omniauth', '2.0.4'
 gem 'omniauth-facebook', '~> 7.0.0'
 gem 'omniauth-rails_csrf_protection'
-
 gem 'faker'
+#paginate gem for rails
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

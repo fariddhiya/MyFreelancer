@@ -14,14 +14,15 @@
  *= require_self
  */
 
- @import 'bulma';
- @import 'bulma-extensions';
- @import 'bulma-extensions/bulma-carousel/dist/bulma-carousel.min.css';
- @import 'noty/lib/noty';
- @import 'noty/lib/themes/sunset';
- @import 'dropzone/dist/basic.css';
- @import 'dropzone/dist/dropzone.css';
+@import 'bulma';
+@import 'bulma-extensions';
+@import 'bulma-extensions/bulma-carousel/dist/bulma-carousel.min.css';
+@import 'noty/lib/noty';
+@import 'noty/lib/themes/sunset';
+@import 'dropzone/dist/basic.css';
+@import 'dropzone/dist/dropzone.css';
+@import 'raty-js/lib/jquery.raty';
 
- .test{
-   color: red;
- }
+.test{
+  color: red;
+}

@@ -14,21 +14,26 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <div class="navbar-item">
-        <div class="field has-addons">
-          <div class="control">
-            <input class="input" type="text" placeholder="Find a services">
+        <%= form_tag search_path, method: :get, class: '' do %>
+          <div class="field has-addons <%= 'is-hidden' if current_page?(root_path) %>">
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                <i class="fa fa-search"></i>
+              </span>
+              <%= text_field_tag 'q', '', class: 'input', placeholder: "Try 'logo design'" %>
+            </div>    
+            <div class="control">
+              <button class="button is-danger" type="submit">Search</button>
+            </div>
           </div>
-          <div class="control">
-            <a class="button is-danger">Search</a>
-          </div>
-        </div>
+
+        <% end %>
       </div>
     </div>
 
     <div class="navbar-end">
       <%= link_to "Post Gig", new_gig_path, class: "navbar-item" %>
-      <%# <a class="navbar-item">Post Gig</a> %>
-      <a class="navbar-item">Browse Gig</a>
+      <%= link_to "Browse Gigs", search_path, class: "navbar-item" %>
 
       <% if (!user_signed_in?) %>
         <div class="navbar-item">
@@ -57,7 +62,8 @@
   </div>
 </nav>
 
-<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") && !current_page?("/users/#{params[:id]}")  %>
+<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gigs/#{params[:id]}") &&
+                          !current_page?("/users/#{params[:id]}") && !current_page?(search_path) %>
   <nav class="navbar has-shadow" style="z-index: 5">
     <div class="container">
       <div class="navbar">
@@ -81,7 +87,7 @@
           <a class="navbar-link">Buyer Request</a>
           <div class="navbar-dropdown">
             <%= link_to 'Active Request', all_requests_path, class: "navbar-item" %>
-            <a class="navbar-item">Offers Sent</a>
+            <%= link_to 'Offers Sent', my_offers_path, class: "navbar-item" %>
           </div>
         </div>
 

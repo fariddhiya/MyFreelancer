@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
 
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% end %>
+
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -46,7 +50,5 @@
     <%= render "shared/notification" %> 
 
     <%= yield %>
-
-    <p class="test">asdasdasdasdasd</p>
   </body>
 </html>

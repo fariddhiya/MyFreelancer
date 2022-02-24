@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+
 window.Noty = require("noty");
 window.Dropzone = require("dropzone");
 window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel.js");
@@ -26,3 +27,4 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+
