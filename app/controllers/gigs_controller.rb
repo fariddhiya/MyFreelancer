@@ -32,11 +32,14 @@ class GigsController < ApplicationController
     if @step == 2
       gig_params[:pricings_attributes].each do |index, pricing|
         if @gig.has_single_pricing && pricing[:pricing_type] != Pricing.pricing_types.key(0)
+          #take index 0 which basic
+          binding.pry
           next;
         else 
           if pricing[:title].blank? || pricing[:description].blank? || pricing[:delivery_time].blank? || pricing[:price].blank?
             return redirect_to request.referrer, flash: {error: "Invalid Pricing"}
           end
+          #take index 0,1,2 which basic, standard, premium
         end
       end
     end
